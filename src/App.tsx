@@ -3,31 +3,46 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/electron-vite.animate.svg'
 import './App.css'
 
+const booksUrl = 'https://www.leslibraires.fr/rayon/litterature/?f_release_date=all'
+
 function App() {
-  const [count, setCount] = useState(0)
+  const runScraper = async () => {
+    const currentEnv = 'http://localhost:3001'
+
+    try {
+      const response = await fetch(`${currentEnv}/api/scraper`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ url: booksUrl }) // Envoyer la valeur du champ texte
+      })
+
+      const data = await response.json()
+      console.log('Data scraped:', data)
+    } catch (error) {
+      console.error("Erreur lors de l'appel à l'API", error)
+    }
+  }
 
   return (
     <>
       <div>
-        <a href="https://electron-vite.github.io" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+        <a href='https://electron-vite.github.io' target='_blank'>
+          <img src={viteLogo} className='logo' alt='Vite logo' />
         </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a href='https://react.dev' target='_blank'>
+          <img src={reactLogo} className='logo react' alt='React logo' />
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <div className='card'>
+        <button onClick={runScraper}>Test api</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
     </>
   )
 }

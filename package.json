@@ -11,7 +11,14 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "electron-updater": "^6.1.7",
+    "express": "^4.19.2",
+    "file-saver": "^2.0.5",
+    "puppeteer": "^22.6.3",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.64",
