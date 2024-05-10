@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/electron-vite.animate.svg'
 import './App.css'
+import { useState } from 'react'
 
 const booksUrl = 'https://www.leslibraires.fr/rayon/litterature/?f_release_date=all'
 
 function App() {
+  const [apiData, setApiData] = useState()
+
   const runScraper = async () => {
     const currentEnv = 'http://localhost:3001'
 
@@ -20,6 +20,7 @@ function App() {
 
       const data = await response.json()
       console.log('Data scraped:', data)
+      setApiData(data)
     } catch (error) {
       console.error("Erreur lors de l'appel à l'API", error)
     }
@@ -27,22 +28,18 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href='https://electron-vite.github.io' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <h1>Scraper</h1>
       <div className='card'>
         <button onClick={runScraper}>Test api</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
+
+      {apiData && (
+        <>
+          <div className='data-wrapper'>
+            <pre>{JSON.stringify(apiData, null, 2)}</pre>
+          </div>
+        </>
+      )}
     </>
   )
 }
