@@ -14,7 +14,7 @@ export default defineConfig({
         vite: {
           build: {
             rollupOptions: {
-              external: ['express', 'cors', 'puppeteer', 'cheerio']
+              external: ['express', 'cors', 'electron', 'puppeteer-core', 'cheerio']
             }
           }
         }

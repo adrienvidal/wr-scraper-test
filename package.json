@@ -12,14 +12,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "cheerio": "^1.0.0-rc.12",
+    "chrome-launcher": "^1.1.1",
     "cors": "^2.8.5",
     "electron-updater": "^6.1.7",
     "express": "^4.19.2",
     "file-saver": "^2.0.5",
     "puppeteer": "^22.6.3",
+    "puppeteer-core": "^22.8.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
@@ -28,13 +30,13 @@
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "@vitejs/plugin-react": "^4.2.1",
+    "electron": "^30.0.1",
+    "electron-builder": "^24.13.3",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "typescript": "^5.2.2",
     "vite": "^5.1.6",
-    "electron": "^30.0.1",
-    "electron-builder": "^24.13.3",
     "vite-plugin-electron": "^0.28.6",
     "vite-plugin-electron-renderer": "^0.14.5"
   },
